@@ -7,20 +7,29 @@ let userSelectedDate;
 let timerInterval;
 const dateTimePicker = document.getElementById('datetime-picker');
 const startButton = document.querySelector('button[data-start]');
+startButton.disabled = true;
 const timerFields = document.querySelectorAll('.timer .value');
 
+function addLeadingZero(value) {
+  return String(value).padStart(2, '0');
+}
+
 function updateTimer(days, hours, minutes, seconds) {
-  timerFields[0].textContent = days.padStart(2, '0');
-  timerFields[1].textContent = hours.padStart(2, '0');
-  timerFields[2].textContent = minutes.padStart(2, '0');
-  timerFields[3].textContent = seconds.padStart(2, '0');
+  timerFields[0].textContent = addLeadingZero(days);
+  timerFields[1].textContent = addLeadingZero(hours);
+  timerFields[2].textContent = addLeadingZero(minutes);
+  timerFields[3].textContent = addLeadingZero(seconds);
 }
 
 function convertMs(ms) {
-  const days = Math.floor(ms / 86400000);
-  const hours = Math.floor(ms / 3600000);
-  const minutes = Math.floor(ms / 60000);
-  const seconds = Math.floor(ms / 1000);
+  const second = 1000;
+  const minute = 60000;
+  const hour = 3600000;
+  const day = 86400000;
+  const days = Math.floor(ms / day);
+  const hours = Math.floor((ms % day) / hour);
+  const minutes = Math.floor(((ms % day) % hour) / minute);
+  const seconds = Math.floor((((ms % day) % hour) % minute) / second);
   return { days, hours, minutes, seconds };
 }
 
@@ -43,7 +52,7 @@ function startCountdown() {
   const { days, hours, minutes, seconds } = convertMs(timeLeft);
   updateTimer(days, hours, minutes, seconds);
 
-  if (distance <= 1000) {
+  if (timeLeft <= 1000) {
     clearInterval(timerInterval);
     iziToast.success({
       title: 'Success',
@@ -74,72 +83,20 @@ const options = {
   time_24hr: true,
   defaultDate: new Date(),
   minuteIncrement: 1,
-  onClose(selectedDates) {
-    console.log(selectedDates[0]);
-  },
+  onClose: handleDateSelection,
 };
 
-flatpickr('#datetime-picker', options/*  {
-  enableTime: true,
-  time_24hr: true,
-  defaultDate: new Date(),
-  minuteIncrement: 1,
-  onClose: handleDateSelection,
-} */);
+flatpickr('#datetime-picker', options);
 
 startButton.addEventListener('click', () => {
   startButton.disabled = true;
   dateTimePicker.disabled = true;
-  startCountdown();
+/*   startCountdown(); */
   timerInterval = setInterval(startCountdown, 1000);
 });
 
 
-/* <!-- Виконуй це завдання у файлах 1-timer.html і 1-timer.js. Напиши скрипт таймера, який здійснює зворотний відлік до певної дати.
-Такий таймер може використовуватися у блогах, інтернет-магазинах, сторінках реєстрації подій, під час технічного обслуговування тощо. Подивися демовідео роботи таймера.
-
-Елементи інтерфейсу
-
-Додай в HTML файл розмітку таймера, поля вибору кінцевої дати і кнопку, при кліку на яку таймер повинен запускатися. Додай оформлення елементів інтерфейсу згідно з макетом.
-
-
-
-<input type="text" id="datetime-picker" />
-<button type="button" data-start>Start</button>
-
-<div class="timer">
-  <div class="field">
-    <span class="value" data-days>00</span>
-    <span class="label">Days</span>
-  </div>
-  <div class="field">
-    <span class="value" data-hours>00</span>
-    <span class="label">Hours</span>
-  </div>
-  <div class="field">
-    <span class="value" data-minutes>00</span>
-    <span class="label">Minutes</span>
-  </div>
-  <div class="field">
-    <span class="value" data-seconds>00</span>
-    <span class="label">Seconds</span>
-  </div>
-</div>
-
-
-
-Бібліотека flatpickr
-
-Використовуй бібліотеку flatpickr для того, щоб дозволити користувачеві кросбраузерно вибрати кінцеву дату і час в одному елементі інтерфейсу.
-Для того щоб підключити CSS код бібліотеки в проєкт, необхідно додати ще один імпорт, крім того, що описаний в документації.
-
-// Описаний в документації
-import flatpickr from "flatpickr";
-// Додатковий імпорт стилів
-import "flatpickr/dist/flatpickr.min.css";
-
-
-
+/*
 Бібліотека очікує, що її ініціалізують на елементі input[type="text"], тому ми додали до HTML документа поле input#datetime-picker.
 
 <input type="text" id="datetime-picker" />

@@ -39,16 +39,32 @@ button {
   height: 32px;
   font-size: 15px;
   padding: 0.5em 1em;
-  margin-left: 10px;
   cursor: pointer;
   border: none;
-  border-radius: 5px;
+  border-radius: 8px;
   background-color:#4E75FF;
   pointer-events: auto;
 }
 button:hover {
   background-color: #6C8CFF;
 }
-button:active {
-  background-color: #db19cb;
+button:disabled {
+  cursor: not-allowed;
+  background-color: #ddd;
+  color: #666;
+}
+
+input {
+  border-radius: 4px;
+  color: 2E2F42;
+}
+input:hover{
+  border-color: #000;
+}
+input:active{
+  border-color: #4E75FF;
+}
+input:disabled {
+  color: #808080;
+  background-color: #fafafa;
 }

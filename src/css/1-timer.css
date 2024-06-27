@@ -6,16 +6,7 @@
 }
 
 button[type="button"] {
-    height: 32px;
-    font-size: 15px;
-    padding: 0.5em 1em;
     margin-left: 10px;
-    cursor: pointer;
-    border: none;
-    border-radius: 5px;
-    background-color: #ddd;
-    color: #666;
-    pointer-events: auto;
 }
 
 .timer {
