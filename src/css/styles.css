@@ -8,6 +8,7 @@
 /* @import url('https://npmcdn.com/flatpickr/dist/themes/dark.css'); */
 @import url('./1-timer.css');
 @import url('./2-snackbar.css');
+@import url('https://npmcdn.com/flatpickr/dist/flatpickr.min.css');
 
 
 :root {
