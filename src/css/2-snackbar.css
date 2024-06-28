@@ -6,16 +6,18 @@ form {
 }
 
 input[type='number'] {
-    width: 360px;
+    width: 342px;
     margin: 10px 0 20px 0;
-/*     border: 1px solid #000; */
     font-size: 1em;
 }
 
 fieldset {
     display: flex;
-    width: 360px;
-    height: 74px;
+    gap: 48px;
+    align-items: center;
+    padding: 20px 48px 8px 48px;
+    width: 260px;
+    height: 32px;
     border: 2px solid #808080;
     margin: 0;
     border-radius: 4px;
@@ -23,12 +25,26 @@ fieldset {
 
 fieldset legend {
     padding: 0 5px;
+    margin-left: -27px;
 }
-/*
+
+input[type='radio'] {
+    width: 20px;
+    height: 20px;
+}
+
+fieldset label {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    height: 32px;
+    margin-top: -12px;
+}
+
 fieldset label:last-child {
-    margin-left: 25px;
+/*     margin-left: 25px; */
 }
- */
+
 button[type='submit'] {
     width: 360px;
     margin-top: 20px;

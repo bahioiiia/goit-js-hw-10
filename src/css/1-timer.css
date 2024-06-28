@@ -1,42 +1,37 @@
 #datetime-picker {
     width: 254px;
-    /* text-align: center; */
 }
 
 button[type="button"] {
-    margin-left: 10px;
+    margin-left: 4px;
     width: 75px;
 }
 
 .timer {
     display: flex;
+    gap: 24px;
     align-items: center;
     margin-top: 20px;
-    font-size: 2em;
-    width: 254px;
 }
 
 .field {
-    border-radius: 8px;
-    width: 75px;
-    height: 40px;
+    display: block;
     text-align: center;
-    font-weight: 400;
-    font-size: 40px;
-    line-height: 120%;
-    letter-spacing: 0.04em;
-    color: #2e2f42;
 }
 
 .value {
-
+    display: block;
+    font-size: 40px;
+    letter-spacing: 0.04em;
+    color: #2e2f42;
+    height: 48px;
 }
 .label {
+    display: block;
     font-weight: 400;
     font-size: 16px;
     line-height: 150%;
     color: #2e2f42;
-    display: block;
     text-transform: uppercase;
 }
 
