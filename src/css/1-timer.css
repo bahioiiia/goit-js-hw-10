@@ -1,11 +1,11 @@
- #datetime-picker {
-    padding: 0.5em;
-    width: 272px;
+#datetime-picker {
+    width: 254px;
     /* text-align: center; */
 }
 
 button[type="button"] {
     margin-left: 10px;
+    width: 75px;
 }
 
 .timer {
@@ -13,14 +13,13 @@ button[type="button"] {
     align-items: center;
     margin-top: 20px;
     font-size: 2em;
+    width: 254px;
 }
 
 .field {
     border-radius: 8px;
-    padding: 8px 16px;
     width: 75px;
     height: 40px;
-    margin: 0 10px;
     text-align: center;
     font-weight: 400;
     font-size: 40px;
@@ -29,9 +28,13 @@ button[type="button"] {
     color: #2e2f42;
 }
 
-.field .label {
+.value {
+
+}
+.label {
     font-weight: 400;
     font-size: 16px;
+    line-height: 150%;
     color: #2e2f42;
     display: block;
     text-transform: uppercase;
