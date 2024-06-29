@@ -5,10 +5,9 @@ form {
     flex-direction: column;   
 }
 
-input[type='number'] {
+input[name='delay'] {
     width: 342px;
     margin: 10px 0 20px 0;
-    font-size: 1em;
 }
 
 fieldset {
@@ -41,15 +40,7 @@ fieldset label {
     margin-top: -12px;
 }
 
-fieldset label:last-child {
-/*     margin-left: 25px; */
-}
-
 button[type='submit'] {
     width: 360px;
     margin-top: 20px;
 }
-
-/*button[type='submit']:hover {
-    background-color: #ccc;
-} */

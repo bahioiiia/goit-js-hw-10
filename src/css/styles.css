@@ -4,11 +4,12 @@
   | default @import url()
   |============================
 */
-/* @import url('./reset.css'); */
+@import url('./reset.css');
 /* @import url('https://npmcdn.com/flatpickr/dist/themes/dark.css'); */
+/* @import url('https://npmcdn.com/flatpickr/dist/flatpickr.min.css'); */
 @import url('./1-timer.css');
 @import url('./2-snackbar.css');
-@import url('https://npmcdn.com/flatpickr/dist/flatpickr.min.css');
+
 
 
 :root {
@@ -19,11 +20,11 @@
   color: #242424;
   background-color: rgba(255, 255, 255, 0.87);
 
-/*   font-synthesis: none;
+  font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  -webkit-text-size-adjust: 100%; */
+  -webkit-text-size-adjust: 100%;
 }
 
 h2 {
